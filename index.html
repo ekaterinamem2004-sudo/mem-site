@@ -73,8 +73,11 @@
   /* монограмма */
   .hero{text-align:center;padding:30px 0 70px}
   .crest{position:relative;display:inline-block;margin:0 auto}
-  .mono{width:clamp(240px,34vw,440px);aspect-ratio:1.684;background:var(--gold);background-size:220% 100%;animation:shine 7s linear infinite;
-    -webkit-mask:url(brand/logo-monogram.svg) center/contain no-repeat;mask:url(brand/logo-monogram.svg) center/contain no-repeat;filter:drop-shadow(0 6px 24px rgba(233,200,122,.25))}
+  /* монограмма: картинка видна всегда (телефоны, файл с диска), поверх неё бегущий золотой блеск по форме логотипа */
+  .mono{position:relative;width:clamp(240px,34vw,440px);aspect-ratio:1.684;filter:drop-shadow(0 6px 24px rgba(233,200,122,.25))}
+  .mono img{display:block;width:100%;height:100%;object-fit:contain}
+  .mono::after{content:"";position:absolute;inset:0;background:var(--gold);background-size:220% 100%;animation:shine 7s linear infinite;
+    -webkit-mask:url(brand/logo-monogram.svg) center/contain no-repeat;mask:url(brand/logo-monogram.svg) center/contain no-repeat}
   .flour{position:absolute;top:50%;width:150px;height:150px;transform:translateY(-50%)}
   .flour.l{left:0}.flour.r{right:0;transform:translateY(-50%) scaleX(-1)}
   .flour path,.orn path{fill:none;stroke:url(#g);stroke-width:1.6;stroke-linecap:round}
@@ -158,7 +161,7 @@
   <main>
     <div class="hero">
       <div class="crest" aria-label="Монограмма МЕМ">
-        <div class="mono" role="img" aria-label="МЕМ"></div>
+        <div class="mono"><img src="brand/logo-monogram.svg" alt="МЕМ" width="640" height="380"></div>
       </div>
       <svg class="orn" viewBox="0 0 320 34" aria-hidden="true"><path d="M10 17 H120 M200 17 H310"/><path d="M120 17 C135 17 142 6 152 6 C160 6 160 17 160 17 C160 17 160 28 168 28 C178 28 185 17 200 17"/><path d="M120 17 C135 17 142 28 152 28 C160 28 160 17 160 17 C160 17 160 6 168 6 C178 6 185 17 200 17"/></svg>
       <h1>Сайты, в которых <em class="gold">случается магия</em></h1>
